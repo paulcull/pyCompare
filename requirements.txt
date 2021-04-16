@@ -1,0 +1,6 @@
+## panda dependancies
+wheel
+xlrd
+openpyxl
+numpy
+pandas
