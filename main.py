@@ -46,9 +46,8 @@ print(df_dm_attribute)
 df_dm_expand = pd.concat([df_dm_table,df_dm_attribute],axis=1)
 print(df_dm_expand)
 
-retain_col_list = ['Table','exp table','Attribute','exp attr']
+retain_col_list = ['Table','Attribute','exp table','exp attr']
 df_dm_expand = df_dm_expand[retain_col_list]
 print(df_dm_expand)
 
-# dfdf = df_dm_expand['exp table', 'exp attr']
 
