@@ -11,8 +11,8 @@ def df_expand(df, di):
         notfirstcol = True
     return df
 
-def df_collapse(df):
-    df['Expanded'] = df[df.columns[1:]].apply(lambda x: ' '.join(x.dropna().astype(str)),axis=1)
+def df_collapse(df,name):
+    df[name] = df[df.columns[1:]].apply(lambda x: ' '.join(x.dropna().astype(str)),axis=1)
     return df
 
 
@@ -37,11 +37,18 @@ df_expand(df_dm_attribute,di_we)
 print(df_dm_table)
 print(df_dm_attribute)
 
-df_collapse(df_dm_table)
-df_collapse(df_dm_attribute)
+df_collapse(df_dm_table,'exp table')
+df_collapse(df_dm_attribute,'exp attr')
 
 print(df_dm_table)
 print(df_dm_attribute)
 
+df_dm_expand = pd.concat([df_dm_table,df_dm_attribute],axis=1)
+print(df_dm_expand)
 
+retain_col_list = ['Table','exp table','Attribute','exp attr']
+df_dm_expand = df_dm_expand[retain_col_list]
+print(df_dm_expand)
+
+# dfdf = df_dm_expand['exp table', 'exp attr']
 
